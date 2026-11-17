@@ -1,0 +1,21 @@
+{
+  "name": "replay-ecommerce",
+  "version": "1.0.0",
+  "description": "E-commerce Replay - Vinilos y CDs",
+  "main": "servidor.js",
+  "scripts": {
+    "start": "node servidor.js",
+    "sembrar": "node base_datos/sembrar.js",
+    "test": "node --test pruebas/api.prueba.js"
+  },
+  "author": "Patrick Mora",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.0",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.23.1"
+  }
+}

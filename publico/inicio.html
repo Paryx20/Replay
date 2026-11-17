@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Replay — Vinilos y CDs</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body data-pantalla="inicio">
+    <!-- Cabecera -->
+    <header class="cabecera">
+        <a class="marca" href="inicio.html">Replay <span>— Vinilos y CDs</span></a>
+
+        <!-- Navegación -->
+        <nav class="navegacion" aria-label="Navegación principal">
+            <a href="inicio.html" aria-current="page">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+        </nav>
+
+        <!-- Sesión y carrito -->
+        <div class="zona-usuario">
+            <span id="saludoCliente" class="saludo" hidden></span>
+            <button type="button" id="botonCerrarSesion" class="boton-enlace" hidden>Cerrar sesión</button>
+            <button type="button" id="botonCarrito" class="boton boton-carrito" aria-controls="carrito" aria-expanded="false">
+                Carrito <span class="contador">(<span id="contadorCarrito">0</span>)</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Contenido -->
+    <main>
+        <!-- Presentación -->
+        <section class="presentacion" aria-labelledby="tituloPresentacion">
+            <p class="sobretitulo">Tienda de discos</p>
+            <h1 id="tituloPresentacion">La música que se guarda, se vuelve a escuchar</h1>
+            <p class="presentacion-texto">Vinilos y CDs originales: clásicos que marcaron época y los lanzamientos que suenan hoy.</p>
+            <div class="presentacion-acciones">
+                <a class="boton boton-principal boton-grande" href="catalogo.html">Ver catálogo</a>
+                <a class="boton boton-info boton-grande" href="catalogo.html?formato=Vinilo">Solo vinilos</a>
+                <a class="boton boton-info boton-grande" href="catalogo.html?formato=CD">Solo CDs</a>
+            </div>
+        </section>
+
+        <!-- Destacados -->
+        <section class="seccion" aria-labelledby="tituloDestacados">
+            <div class="seccion-cabecera">
+                <h2 id="tituloDestacados">Discos destacados</h2>
+                <a href="catalogo.html">Ver los 20 discos</a>
+            </div>
+            <div id="estado" class="estado" role="status" aria-live="polite" hidden></div>
+            <div id="rejilla" class="rejilla rejilla-destacados"></div>
+        </section>
+    </main>
+
+    <!-- Pie -->
+    <footer class="pie">
+        <p>Replay — Vinilos y CDs. Proyecto académico de comercio electrónico.</p>
+    </footer>
+
+    <!-- Carrito lateral -->
+    <div id="fondoCarrito" class="fondo-carrito"></div>
+    <aside id="carrito" class="carrito" aria-label="Carrito de compras" aria-hidden="true">
+        <header class="carrito-cabecera">
+            <h2>Tu carrito</h2>
+            <button type="button" id="botonCerrarCarrito" class="boton-cerrar" aria-label="Cerrar carrito">&times;</button>
+        </header>
+
+        <p id="sesionCarrito" class="carrito-sesion" hidden></p>
+
+        <!-- Productos del carrito -->
+        <div class="carrito-cuerpo">
+            <ul id="listaCarrito" class="lista-carrito"></ul>
+            <p id="carritoVacio" class="carrito-vacio">Tu carrito está vacío.</p>
+        </div>
+
+        <!-- Mensajes -->
+        <p id="mensajeCarrito" class="mensaje" aria-live="polite" hidden></p>
+
+        <!-- Formulario de sesión -->
+        <form id="formularioSesion" class="formulario-sesion" hidden>
+            <div class="modos" role="group" aria-label="Tipo de acceso">
+                <button type="button" id="modoLogin" class="modo" aria-pressed="true">Iniciar sesión</button>
+                <button type="button" id="modoRegistro" class="modo" aria-pressed="false">Registrarse</button>
+            </div>
+            <div id="campoNombre" class="campo" hidden>
+                <label for="nombreCliente">Nombre</label>
+                <input type="text" id="nombreCliente" autocomplete="name">
+            </div>
+            <div class="campo">
+                <label for="correoCliente">Correo</label>
+                <input type="email" id="correoCliente" autocomplete="email" required>
+            </div>
+            <div class="campo">
+                <label for="claveCliente">Clave</label>
+                <input type="password" id="claveCliente" autocomplete="current-password" required>
+            </div>
+            <button type="submit" id="botonEnviarSesion" class="boton boton-exito">Entrar y comprar</button>
+            <button type="button" id="botonCancelarSesion" class="boton-enlace">Volver al carrito</button>
+        </form>
+
+        <!-- Resumen y acciones -->
+        <footer id="pieCarrito" class="carrito-pie">
+            <p class="resumen"><span>Productos</span><span id="cantidadCarrito">0</span></p>
+            <p class="resumen resumen-total"><span>Total</span><span id="totalCarrito" class="precio">$0.00</span></p>
+            <button type="button" id="botonComprar" class="boton boton-exito" disabled>Procesar compra</button>
+            <button type="button" id="botonVaciar" class="boton boton-peligro" disabled>Vaciar carrito</button>
+        </footer>
+    </aside>
+
+    <!-- Avisos -->
+    <div id="avisos" class="avisos" aria-live="polite"></div>
+
+    <!-- Scripts MVC -->
+    <script src="js/modelo.js"></script>
+    <script src="js/vista.js"></script>
+    <script src="js/controlador.js"></script>
+</body>
+</html>
